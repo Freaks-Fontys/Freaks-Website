@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "freaks-website"
+  "defaultProject": "freaks-website",
+  "cli": {
+    "analytics": "8f536d42-4e2b-4b25-b160-65d15cf8cfc3"
+  }
 }
