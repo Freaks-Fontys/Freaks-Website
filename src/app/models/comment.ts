@@ -13,7 +13,7 @@ export class Comment extends Post {
         updatedAt?: Date,
         deletedAt?: Date
         ){
-        super(id, userId, title, description, createdAt);
+        super(id, userId, title, description, createdAt, imageURL, updatedAt, deletedAt);
         this.postId = postId;
     }
 }
