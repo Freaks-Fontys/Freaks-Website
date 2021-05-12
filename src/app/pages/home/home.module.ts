@@ -5,7 +5,7 @@ import { PostlistComponent } from 'src/app/components/postlist/postlist.componen
 
 
 @NgModule({
-  declarations: [ PostlistComponent ],
+  declarations: [],
   imports: [
     CommonModule
   ]

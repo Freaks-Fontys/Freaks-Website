@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PostlistComponent } from './components/postlist/postlist.component';
 import { HomeComponent } from './pages/home/home.component';
 import { CreateDialogBoxComponent } from './components/create-dialog-box/create-dialog-box.component';
-import { HomeModule } from './pages/home/home.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,8 @@ import { HomeModule } from './pages/home/home.module';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
