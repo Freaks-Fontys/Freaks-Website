@@ -1,0 +1,26 @@
+
+.postHeader {
+    display: inline-flex;
+    width: 100%;
+    margin-top: 30px;
+}
+.postInput {
+    width: 100%;
+    margin-right: 10px;
+}
+
+.postButton {
+    width: 30%;
+    height: 20%;
+}
+
+.avatar {
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.content {
+    height: calc(100vh - 64px);
+    overflow: auto;
+}

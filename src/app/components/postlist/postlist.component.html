@@ -1,1 +1,49 @@
-<button (click)="createPost()"></button>
+<div fxLayout="column" fxLayoutAlign="space-around" >
+    <form class="postHeader">
+        <img class="avatar" src="../../../assets/images/img_avatar.png" alt="Avatar">
+        <mat-form-field class="postInput">
+          <mat-label>Whats on your mind?</mat-label>
+          <input matInput #message maxlength="256" placeholder="Share with your followers....">
+          <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+        </mat-form-field>
+        <button class="postButton" (click)="onSubmit()" mat-raised-button color="primary">Create Post</button>
+    </form>
+    
+    
+    <mat-divider></mat-divider>
+    
+    <!-- <div class="postList">
+        <div class="post" *ngFor="">
+
+        </div>
+    </div> -->
+
+    <mat-list class="content">
+        <mat-list-item *ngFor="let item of listItems">
+          <img matListAvatar [src]="item.image">
+          <h3 matLine> {{item.title}} </h3>
+          <p matLine>
+            <span> {{item.content}} </span>
+          </p>
+          <button mat-icon-button [matMenuTriggerFor]="itemMenu">
+            <mat-icon>
+              more_vert
+            </mat-icon>
+          </button>
+          <mat-divider></mat-divider>
+        </mat-list-item>
+    </mat-list>
+    
+    <mat-menu #itemMenu="matMenu">
+      <button mat-menu-item>
+        Option 1
+      </button>
+      <button mat-menu-item>
+        Option 2
+      </button>
+      <button mat-menu-item>
+        Option 3
+      </button>
+    </mat-menu>
+</div>
+

@@ -13,6 +13,10 @@ export class PostService {
     private http: HttpClient
   ) { }
 
+  get(pagination: number): Promise<Post[]>{
+    return this.http.get<Post[]>(this.baseURL + '/' + pagination).toPromise();
+  }
+
   create(post: Post): Promise<Post>{
     return this.http.post<Post>(this.baseURL, post).toPromise();
   }

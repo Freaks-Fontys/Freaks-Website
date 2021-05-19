@@ -8,20 +8,24 @@ import { PostlistComponent } from './components/postlist/postlist.component';
 import { HomeComponent } from './pages/home/home.component';
 import { CreateDialogBoxComponent } from './components/create-dialog-box/create-dialog-box.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { LeftnavComponent } from './components/leftnav/leftnav.component';
+import { MaterialModule } from './material/material/material.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     PostlistComponent,
     HomeComponent,
-    CreateDialogBoxComponent
+    CreateDialogBoxComponent,
+    LeftnavComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
