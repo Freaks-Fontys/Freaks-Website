@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { PostlistComponent } from 'src/app/components/postlist/postlist.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [PostlistComponent],
   imports: [
     CommonModule
   ]

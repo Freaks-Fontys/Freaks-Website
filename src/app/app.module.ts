@@ -10,6 +10,7 @@ import { CreateDialogBoxComponent } from './components/create-dialog-box/create-
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { LeftnavComponent } from './components/leftnav/leftnav.component';
 import { MaterialModule } from './material/material/material.module';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { MaterialModule } from './material/material/material.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    MaterialModule
+    MaterialModule,
+    InfiniteScrollModule
   ],
   providers: [],
   bootstrap: [AppComponent]

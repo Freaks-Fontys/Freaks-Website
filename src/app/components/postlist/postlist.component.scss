@@ -20,7 +20,26 @@
     margin-right: 5px;
 }
 
-.content {
-    height: calc(100vh - 64px);
+.infinite-scroll-container {
+    height: 100%;
+    background-color: #f3f3f3;
+    border-radius: 3px;
     overflow: auto;
-}
+  
+    .mat-list-base {
+      padding-top: 0;
+    }
+  
+    ng-scrollbar {
+      --scrollbar-track-color: rgba(0, 0, 0, 0.05);
+      --scrollbar-thumb-color: var(--color-infinite-scroll-example);
+      --scrollbar-size: 12px;
+  
+      border-radius: 3px;
+      border: 2px solid rgba(0, 0, 0, 0.05);
+    }
+  
+    .inner {
+      width: 140%;
+    }
+  }

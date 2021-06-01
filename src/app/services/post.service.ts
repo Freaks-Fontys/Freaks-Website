@@ -13,8 +13,12 @@ export class PostService {
     private http: HttpClient
   ) { }
 
-  get(pagination: number): Promise<Post[]>{
-    return this.http.get<Post[]>(this.baseURL + '/' + pagination).toPromise();
+  get(id: number): Promise<Post>{
+    return this.http.get<Post>(this.baseURL + '/' + id).toPromise();
+  }
+
+  getMultiple(paginationStart: number, paginationEnd: number): Promise<Post[]>{
+    return this.http.get<Post[]>(this.baseURL + '/multiple/start' + paginationStart + '/end' + paginationEnd).toPromise();
   }
 
   create(post: Post): Promise<Post>{

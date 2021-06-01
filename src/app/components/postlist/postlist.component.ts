@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
 import { Post } from 'src/app/models/post';
 import { PostService } from 'src/app/services/post.service';
 
@@ -26,7 +25,7 @@ export class PostlistComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.fetchMore();
+    this.initializeList();
   }
 
   onSubmit(): void{
@@ -34,24 +33,47 @@ export class PostlistComponent implements OnInit {
   }
 
   addAttachment(): void{
-
+    throw new Error('Not implemented');
   }
 
-  fetchMore(): void {
+  onScrollDown(ev: any): void {
+    console.log('scrolled down!!', ev);
+    this.generateDummyData();
 
-    const images = ['IuLgi9PWETU', 'fIq0tET6llw', 'xcBWeU4ybqs', 'YW3F-C5e8SE', 'H90Af2TFqng'];
+    const numOfItemsToBeLoaded = 5;
 
-    const newItems = [];
-    for (let i = 0; i < 20; i++) {
-      const randomListNumber = Math.round(Math.random() * 100);
-      const randomPhotoId = Math.round(Math.random() * 4);
-      newItems.push({
-        title: 'List Item ' + randomListNumber,
-        content: 'This is some description of the list - item # ' + randomListNumber,
-        image: `https://source.unsplash.com/${images[randomPhotoId]}/50x50`
+    this.postService.getMultiple(this.listItems.length, this.listItems.length + numOfItemsToBeLoaded);
+  }
+
+  onUp(ev: any): void {
+    console.log('scrolled up!', ev);
+
+    this.loadMore();
+  }
+
+  // TODO
+  initializeList(): void {
+    this.generateDummyData();
+    // const numOfItemsToBeLoaded = 10;
+
+    // this.postService.getMultiple(this.listItems.length, this.listItems.length + numOfItemsToBeLoaded);
+  }
+
+  // TODO
+  loadMore(): void {
+    this.generateDummyData();
+    // const numOfItemsToBeLoaded = 5;
+
+    // this.postService.getMultiple(this.listItems.length, this.listItems.length + numOfItemsToBeLoaded);
+  }
+
+  generateDummyData(): void {
+    for (let i = 0; i < 10; i++){
+      this.listItems.push({
+        image: '../../assets/images/img_avatar.png',
+        title: 'Hi this is a test',
+        content: 'Im very pleased with this content'
       });
     }
-
-    this.listItems = [...this.listItems, ...newItems];
   }
 }

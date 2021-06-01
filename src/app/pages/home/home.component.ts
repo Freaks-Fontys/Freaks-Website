@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
       this.userId = params.user;
     });
 
-    this.getUser()
+    // this.getUser();
   }
 
   getUser(): void {
