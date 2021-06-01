@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Post } from '../models/post';
@@ -18,7 +18,10 @@ export class PostService {
   }
 
   getMultiple(paginationStart: number, paginationEnd: number): Promise<Post[]>{
-    return this.http.get<Post[]>(this.baseURL + '/multiple/start' + paginationStart + '/end' + paginationEnd).toPromise();
+    const params = new HttpParams();
+    params.set('start', paginationStart.toString());
+    params.set('end', paginationEnd.toString());
+    return this.http.get<Post[]>(this.baseURL, {params}).toPromise();
   }
 
   create(post: Post): Promise<Post>{
