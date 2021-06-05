@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -11,6 +11,15 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { LeftnavComponent } from './components/leftnav/leftnav.component';
 import { MaterialModule } from './material/material/material.module';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './pages/login/login.component';
+import { AuthInterceptor } from './interceptor/auth.interceptor';
+import { JwtModule } from '@auth0/angular-jwt';
+
+// tslint:disable-next-line: typedef
+export function tokenGetter() {
+  return localStorage.getItem('token');
+}
 
 @NgModule({
   declarations: [
@@ -18,7 +27,8 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     PostlistComponent,
     HomeComponent,
     CreateDialogBoxComponent,
-    LeftnavComponent
+    LeftnavComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -26,10 +36,18 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     AppRoutingModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
+    FormsModule,
+    ReactiveFormsModule,
     MaterialModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: ['localhost', 'api.freaks.nl', 'freaks.nl']
+      },
+    }),
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}, ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
