@@ -50,8 +50,7 @@ export function tokenGetter() {
       },
     }),
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
-     { provide: LocationStrategy, useClass: HashLocationStrategy} ],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
