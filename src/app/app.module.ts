@@ -48,7 +48,7 @@ export function tokenGetter() {
       },
     }),
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}, Location,
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
      {provide: LocationStrategy, useClass: HashLocationStrategy} ],
   bootstrap: [AppComponent]
 })
