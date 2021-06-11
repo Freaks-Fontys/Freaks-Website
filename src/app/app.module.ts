@@ -15,6 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './pages/login/login.component';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
 import { JwtModule } from '@auth0/angular-jwt';
+import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 
 // tslint:disable-next-line: typedef
 export function tokenGetter() {
@@ -47,7 +48,8 @@ export function tokenGetter() {
       },
     }),
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}, ],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
+     {provide: LocationStrategy, useClass: PathLocationStrategy} ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
