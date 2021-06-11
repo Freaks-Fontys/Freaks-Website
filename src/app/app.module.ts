@@ -16,6 +16,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
 import { JwtModule } from '@auth0/angular-jwt';
 import { HashLocationStrategy, LocationStrategy} from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 // tslint:disable-next-line: typedef
 export function tokenGetter() {
@@ -41,6 +42,7 @@ export function tokenGetter() {
     ReactiveFormsModule,
     MaterialModule,
     InfiniteScrollModule,
+    RouterModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
@@ -49,7 +51,7 @@ export function tokenGetter() {
     }),
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
-     {provide: LocationStrategy, useClass: HashLocationStrategy} ],
+     { provide: LocationStrategy, useClass: HashLocationStrategy} ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
