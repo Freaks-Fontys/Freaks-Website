@@ -46,7 +46,7 @@ export function tokenGetter() {
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
-        allowedDomains: ['localhost', 'api.freaks.nl', 'freaks.nl']
+        allowedDomains: ['localhost', 'api.freaks.nl', 'freakswebsite.nl']
       },
     }),
   ],
