@@ -32,4 +32,4 @@ jobs:
           repository: 85116875693/freaks-website
           context: .
           push: true
-          tags: 85116875693/freaks-website:latest
+          tags: 85116875693/freaks-website:1.0
