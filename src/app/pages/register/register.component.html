@@ -1,0 +1,20 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="registerForm">
+        <div fxLayout="column" fxFlexFill fxLayoutAlign="center center">
+            <h1>Register</h1>
+            <mat-form-field class="registerInput">
+                <mat-label>Username</mat-label>
+                <input matInput formControlName="username" maxlength="50" placeholder="Choose your username...">
+            </mat-form-field>
+            <mat-form-field class="registerInput">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" maxlength="50" placeholder="Fill in your email...">
+            </mat-form-field>
+            <mat-form-field class="registerInput">
+                <mat-label>Password</mat-label>
+                <input matInput formControlName="password" placeholder="Fill in your password...">
+            </mat-form-field>
+            <button class="registerButton" (click)="onSubmit()" mat-raised-button color="primary">Submit</button>
+        </div>
+    </div>
+</form>

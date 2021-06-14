@@ -17,6 +17,7 @@ import { AuthInterceptor } from './interceptor/auth.interceptor';
 import { JwtModule } from '@auth0/angular-jwt';
 import { HashLocationStrategy, LocationStrategy} from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { RegisterComponent } from './pages/register/register.component';
 
 // tslint:disable-next-line: typedef
 export function tokenGetter() {
@@ -30,7 +31,8 @@ export function tokenGetter() {
     HomeComponent,
     CreateDialogBoxComponent,
     LeftnavComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
