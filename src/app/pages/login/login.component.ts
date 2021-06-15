@@ -18,9 +18,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private authService: AuthService, private formBuilder: FormBuilder, private router: Router) { }
 
-  ngOnInit(): void {
-    console.log(environment.apiUrl);
-  }
+  ngOnInit(): void {}
 
   onSubmit(): void {
     const msg = new UserLoginMsg(this.loginForm.get('email')?.value, this.loginForm.get('password')?.value);
