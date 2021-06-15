@@ -4,7 +4,7 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm install
 COPY . .
-RUN ng build --prod
+RUN npm run build --prod
 
 FROM nginx:alpine
 COPY --from=build /app/dist/freaks-website /usr/share/nginx/html
