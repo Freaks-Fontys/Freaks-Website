@@ -1,13 +1,31 @@
-FROM node:12.7-alpine AS build
-WORKDIR /app
+FROM node:12.7-alpine as builder
 
+# copy the package.json to install dependencies
 COPY package.json package-lock.json ./
-RUN npm install
+
+# Install the dependencies and make the folder
+RUN npm install && mkdir /freaks-website && mv ./node_modules ./freaks-website
+
+WORKDIR /freaks-website
+
 COPY . .
-RUN npm run build --prod
+
+# Build the project and copy the files
+RUN npm run ng build -- --deploy-url=/envapp/ --prod
+
 
 FROM nginx:alpine
-COPY --from=build /app/dist/freaks-website /usr/share/nginx/html
 
-EXPOSE 4200
-EXPOSE 80
+#!/bin/sh
+
+COPY ./.nginx/nginx.conf /etc/nginx/nginx.conf
+
+## Remove default nginx index page
+RUN rm -rf /usr/share/nginx/html/*
+
+# Copy from the stahg 1
+COPY --from=builder /freaks-website/dist /usr/share/nginx/html
+
+EXPOSE 4200 80
+
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
