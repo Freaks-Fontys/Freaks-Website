@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment.prod';
 import { UserLoginMsg } from '../models/messages/user-login-msg';
 import { UserRegisterMsg } from '../models/messages/user-register-msg';
 import { User } from '../models/user';
