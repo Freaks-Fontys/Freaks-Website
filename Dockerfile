@@ -1,4 +1,4 @@
-FROM node:12.7-alpine as builder
+FROM node:10-alpine as builder
 
 # copy the package.json to install dependencies
 COPY package.json package-lock.json ./
