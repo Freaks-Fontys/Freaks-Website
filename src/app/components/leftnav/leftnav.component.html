@@ -13,5 +13,7 @@
         <h2 class="navTitle">Your car</h2>
         <h3 *ngIf="!user.car; else carData">There is no data yet</h3>
         <ng-template #carData>
+            <h3>Display cardata</h3>
+        </ng-template>
     </div>
 </div>
