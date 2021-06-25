@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
     this.authService.login(msg)
       .subscribe(
         data => {
-          this.router.navigateByUrl('/home');
+          this.router.navigate(['/home'], { queryParams: {userId: data.id}});
         },
         error => {
           console.log(error);

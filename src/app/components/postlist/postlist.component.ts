@@ -68,7 +68,7 @@ export class PostlistComponent implements OnInit {
   }
 
   generateDummyData(): void {
-    for (let i = 0; i < 10; i++){
+    for (let i = 0; i < 15; i++){
       this.listItems.push({
         image: '../../assets/images/img_avatar.png',
         title: 'Hi this is a test',

@@ -32,7 +32,7 @@ export class AuthService {
     return this.http.post<User>(`${environment.apiUrl}api/Register`, register).toPromise();
   }
 
-  login(login: UserLoginMsg): Observable<any> {
+  login(login: UserLoginMsg): Observable<User> {
     return this.http.post<any>(`${environment.apiUrl}api/Login`, login)
       .pipe(map((response: User) => {
         localStorage.setItem('token', JSON.stringify(response));

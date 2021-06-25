@@ -9,5 +9,9 @@
         <h3 routerLink="/history" class="navLink">History</h3>
     </div>
 
-    <!-- Place info about car here with big margin to top-->
+    <div class="navCar">
+        <h2 class="navTitle">Your car</h2>
+        <h3 *ngIf="!user.car; else carData">There is no data yet</h3>
+        <ng-template #carData>
+    </div>
 </div>
