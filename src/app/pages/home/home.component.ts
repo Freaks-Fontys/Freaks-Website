@@ -18,11 +18,10 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
-      console.log(params.userId);
       this.userId = params.userId;
     });
 
-    this.getUser();
+    //this.getUser();
   }
 
   getUser(): void {

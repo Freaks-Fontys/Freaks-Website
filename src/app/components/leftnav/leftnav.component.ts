@@ -7,8 +7,6 @@ import { User } from 'src/app/models/user';
   styleUrls: ['./leftnav.component.scss']
 })
 export class LeftnavComponent implements OnInit {
-  @Input() user!: User;
-
 
   constructor() { }
 
